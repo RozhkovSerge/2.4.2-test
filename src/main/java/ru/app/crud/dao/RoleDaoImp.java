@@ -4,12 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import ru.app.crud.model.Role;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 public class RoleDaoImp implements RoleDao{
     EntityManager entityManager;
 
-    @Autowired
-    public RoleDaoImp(EntityManager entityManager) {
+    @PersistenceContext
+    public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
