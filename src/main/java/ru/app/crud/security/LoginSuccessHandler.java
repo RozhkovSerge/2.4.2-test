@@ -24,8 +24,12 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
     private  UserService userServiceImp;
 
     @Autowired
-    public void setUserServiceImp(UserService userServiceImp) {
-        this.userServiceImp = userServiceImp; // в сеттере все нормально, поле инициализируется
+    public LoginSuccessHandler(UserService userServiceImp) {
+        this.userServiceImp = userServiceImp;
+    }
+
+    public LoginSuccessHandler() {
+
     }
 
     @Override
