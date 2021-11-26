@@ -1,6 +1,5 @@
 package ru.app.crud.dao;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ru.app.crud.model.User;
 
@@ -11,12 +10,9 @@ import java.util.List;
 
 @Repository
 public class UserDaoImp implements UserDao {
-    private EntityManager entityManager;
 
     @PersistenceContext
-    public void setEntityManager(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
+    private EntityManager entityManager;
 
     @Override
     public List<User> getAllUsers() {

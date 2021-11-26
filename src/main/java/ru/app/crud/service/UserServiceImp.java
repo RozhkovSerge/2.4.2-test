@@ -21,7 +21,7 @@ public class UserServiceImp implements UserService, UserDetailsService {
     private UserDao userDao;
 
     @Autowired
-    public void setUserDao(UserDao userDao) {
+    public UserServiceImp(UserDao userDao) {
         this.userDao = userDao;
     }
 
