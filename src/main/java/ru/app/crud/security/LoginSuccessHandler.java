@@ -25,7 +25,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 
     @Autowired
     public void setUserServiceImp(UserService userServiceImp) {
-        this.userServiceImp = userServiceImp;
+        this.userServiceImp = userServiceImp; // в сеттере все нормально, поле инициализируется
     }
 
     @Override
@@ -33,7 +33,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
                                         HttpServletResponse httpServletResponse,
                                         Authentication authentication) throws IOException, ServletException {
 
-        User user = userServiceImp.getUserByName(authentication.getName());
+        User user = userServiceImp.getUserByName(authentication.getName()); // но здесь уже равно null
         httpServletResponse.sendRedirect("/user/" + user.getId());
 
     }
