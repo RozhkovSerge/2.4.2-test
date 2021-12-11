@@ -15,19 +15,17 @@ import ru.app.crud.service.UserService;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    private final UserDetailsService userDetailsService;
     private final LoginSuccessHandler loginSuccessHandler;
     private final UserService userService;
 
-    SecurityConfig(UserDetailsService userDetailsService, LoginSuccessHandler loginSuccessHandler, UserService userService) {
-        this.userDetailsService = userDetailsService;
+    SecurityConfig(LoginSuccessHandler loginSuccessHandler, UserService userService) {
         this.loginSuccessHandler = loginSuccessHandler;
         this.userService = userService;
     }
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
     }
 
     @Override
