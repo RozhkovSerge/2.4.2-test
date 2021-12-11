@@ -25,9 +25,9 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
     @Override
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest,
                                         HttpServletResponse httpServletResponse,
-                                        Authentication authentication) throws IOException, ServletException {
+                                        Authentication authentication) throws IOException {
 
-        User user = userServiceImp.getUserByName(authentication.getName()); // но здесь уже равно null
+        User user = userServiceImp.getUserByName(authentication.getName());
         httpServletResponse.sendRedirect("/user/" + user.getId());
 
     }

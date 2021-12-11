@@ -47,7 +47,6 @@ public class HibernateConfig {
 
         HibernateJpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
         jpaVendorAdapter.setGenerateDdl(true);
-        jpaVendorAdapter.setDatabasePlatform("org.hibernate.dialect.H2Dialect");
 
         factory.setPackagesToScan(new String[]{"ru.app.crud.model"});
         factory.setJpaProperties(additionalProperties());

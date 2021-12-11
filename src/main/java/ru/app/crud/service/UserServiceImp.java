@@ -66,13 +66,6 @@ public class UserServiceImp implements UserService, UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-        User user = userDao.getUserByName(name);
-        org.springframework.security.core.userdetails.User user1 = new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), mapRolesToAuthorities(user.getRoles()));
-        return user1;
-    }
-
-    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
-        Collection<? extends GrantedAuthority> authorities = roles.stream().map(s -> new SimpleGrantedAuthority(s.getName())).collect(Collectors.toList());
-        return authorities;
+        return userDao.getUserByName(name);
     }
 }
